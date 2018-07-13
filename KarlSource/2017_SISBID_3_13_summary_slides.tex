@@ -1,0 +1,856 @@
+\documentclass[12pt,t]{beamer}
+\usepackage{graphicx}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\usepackage{listings}
+
+\input{LaTeX/header.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% title info
+\title{13: Summary + Extras}
+\author{}
+\date{\href{https://bit.ly/SISBID3}{\tt \color{foreground} bit.ly/SISBID3}}
+
+\begin{document}
+
+% title slide
+{
+\setbeamertemplate{footline}{} % no page number here
+\frame{
+  \titlepage
+  \note{We'll briefly summarize all that we discussed, and further
+    touch on how to share your research data and code. Then we'll give
+    pointers to the many things that we didn't have time to talk about.
+} } }
+
+
+\begin{frame}[c]{}
+
+\begin{center}
+\large
+The most important tool is the {\hilit mindset},\\
+when starting, that the end product \\
+will be reproducible.
+\end{center}
+
+\hfill
+{\lolit
+{\textendash} \href{http://odin.mdacc.tmc.edu/~kabaggerly/}{Keith Baggerly}
+}
+
+\note{So true. Desire for reproducibility is step one.
+}
+\end{frame}
+
+
+
+
+\begin{frame}[c]{Steps toward reproducible research}
+
+
+  \bi
+\item Slow down
+\item Organize; document
+\item Everything with code
+\item Scripts → RMarkdown
+\item Code → functions → packages
+\item Version control with Git
+\item Automation with Make
+\item Choose a license
+\item Share your work with others
+  \ei
+
+
+\note{Moving from ``standard practice'' to ``fully reproducible'' is
+  hard. There are a lot of tools to learn and a lot of workflow
+  changes to make. Don't try to change everything all at once. Focus
+  on improving one aspect at a time, ideally jointly with your friends
+  and colleagues. Your goal should be to have each project be a bit
+  better organized than the previous.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{Make with R Markdown}
+
+
+  To use Make with R Markdown, you'll use a command like:
+
+  \vspace{3mm}
+
+  {\tt R -e "rmarkdown::render('my\_report.Rmd')"}
+
+  \vspace{3mm}
+
+  You'll need to tell your operating system
+where it can find \href{https://pandoc.org/}{pandoc}.
+\href{http://www.rstudio.com}{RStudio} includes pandoc, but you need
+to add the relevant directory to your {\tt PATH}.
+
+\vspace{24pt}
+
+\hspace{3mm} {\hilit Mac}:
+
+\vspace{6pt}
+
+\hspace{9mm} {\ttsm /Applications/RStudio.app/Contents/MacOS/pandoc}
+
+\vspace{24pt}
+
+\hspace{3mm} {\hilit Windows}:
+
+\vspace{6pt}
+
+\hspace{9mm} {\ttsm "c:{\textbackslash}Program Files{\textbackslash}RStudio{\textbackslash}bin{\textbackslash}pandoc"}
+
+\note{
+    To use GNU Make with R Markdown, you'll need to be able to turn
+    the thing into HTML (or PDF or Word) from the command line. The
+    key trick is getting the operating system to know where pandoc can
+    be located.  You may also need to tell it about the location of R.
+}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{{\tt {\textasciitilde}/.bash\_profile}}
+
+\vspace{-12pt}
+
+\begin{semiverbatim}
+\begin{lstlisting}
+export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc
+
+noclobber=1    # prevent overwriting of files
+IGNOREEOF=1    # disable Ctrl-D as a way to exit
+HISTCONTROL=ignoredups
+
+alias cl='clear;cd'
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+alias ls='ls -GF'
+alias 'l.'='ls -d .[a-zA-Z]*'
+alias ll='ls -lh'
+alias md='mkdir'
+alias rd='rmdir'
+alias rmb='rm .*~ *~ *.bak *.bk!'
+
+alias Rb='R CMD build --force --resave-data'
+alias Ri='R CMD INSTALL --library=/Users/kbroman/Rlibs'
+alias Rc='R CMD check --library=/Users/kbroman/Rlibs'
+alias Rcc='R CMD check --as-cran --library=/Users/kbroman/Rlibs'
+\end{lstlisting}
+\end{semiverbatim}
+
+
+\note{Use the {\tt .bash\_profile} file to define various
+  variables and aliases to make your life easier.
+
+The most important variable is {\tt PATH}: it defines the set of
+directories where the shell will look for executable programs.
+If ``{\tt .}'' isn't part of your {\tt PATH}, you'll need to type
+something like {\tt ./myscript.py} to execute a script in your working
+directory. So put ``{\tt .}'' in your {\tt PATH}.
+
+My {\tt .bash\_profile} file sources a {\tt .bashrc} file; I don't
+quite understand when one is used versus the other. Google ``{\tt .bashrc
+vs .bash\_profile}.''
+There are links to my {\tt .bash\_profile} and {\tt .bashrc} files on
+the resources page at the course web site; some of it might just be
+total crap.
+
+If you're using Windows and Git Bash, the {\tt .bash\_profile} file
+will be in your Documents folder (I think).
+
+Important note: use of aliases within your code will create
+reproducibility issues; another user will need those same aliases.
+Consider testing your code on a more basic account.
+}
+
+\end{frame}
+
+
+\begin{frame}[c]{{\tt PATH} in Windows}
+
+\only<1 | handout 0>{\figw{Figs/win_path_1.png}{0.95}}
+\only<2 | handout 0>{\figw{Figs/win_path_2.png}{0.95}}
+\only<3>{\figw{Figs/win_path_3.png}{0.95}}
+
+\note{With Git Bash, you can have a {\tt {\textasciitilde}/.bash\_profile}
+  file that adds stuff to your {\tt PATH}, just as in Mac OS X and Linux.
+
+  But things will also be added to the {\tt PATH} variable via the
+  Path system variable and/or a Path user variable.
+  You can get to these via the ``Control panel,'' but it's a bit
+  cumbersome.
+
+  The simplest way to get to the relevant dialog box seems to be to
+  click Win-w (the little windows key and the w key) and searching for
+  ``path''.
+}
+
+\end{frame}
+
+
+\begin{frame}[c]{Challenges}
+
+
+  \bi
+\item Daily maintenance
+  \bi
+\item READMEs up to date?
+\item Documentation matches code?
+  \ei
+\item Cleaning up the junk
+  \bi
+\item Move defunct stuff into an {\tt Old/} subdirectory?
+  \ei
+\item Start over from the beginning, nicely?
+  \ei
+
+
+\note{The organization of a project is dependent on your worst day
+  with it. You keep everything carefully arranged for months and then
+  one day you need to rush, rush, rush to get a manuscript out the
+  door, and you leave a big mess.
+
+  And a common problem is that you don't really know what you're doing
+  until it's all done. So if you can, spend a week at the end making a
+  separate, clean version of the whole thing.
+}
+\end{frame}
+
+
+
+\begin{frame}{Sharing your work}
+
+\vspace{12mm}
+
+  \bi
+\item Why share?
+  \bi
+\item Funding agency or journal requirement
+\item Increased visibility
+\item So that others can build on your work
+  \ei
+\item When?
+  \bi
+\item Continuously and instantaneously
+\item When you submit a paper
+\item When your paper appears
+  \ei
+\item Risks?
+  \ei
+
+\vspace{12mm}
+
+\hfill \href{https://bit.ly/rr_sharing_slides}{\tt \footnotesize \lolit bit.ly/rr\_sharing\_slides}
+
+  \note{
+    There a lot of advantages to making your work public, and you may
+    be required to make it public.
+
+    Some scientists put all of the work in the open as they're doing
+    it. Others wait until they submit a manuscript; others until the
+    manuscript actually appears. Still others want to delay releasing
+    data yet further. The earlier the better, I think.
+
+    Are there risks? Many worry about being scooped: having someone
+    find something cool in your data before you got a chance to find
+    it yourself. I think the risk of this is far outweighed by the
+    advantages of having data and code in the open. You may also worry
+    about people finding problems in your analyses. But if there are
+    problems, wouldn't you rather know about them? You can't build
+    upon it if it's not right.
+
+    The biggest risk is that you'll be ignored. Sharing more,
+    sooner, and in a more convenient form will encourage broader
+    visibility.
+  }
+
+
+\end{frame}
+
+
+\begin{frame}[c]{}
+
+\begin{center}
+  I'm not worried about being scooped, \\
+  I'm worried about being ignored.
+\end{center}
+
+\hfill
+{\lolit
+{\textendash} \href{https://twitter.com/BaxterTwi/status/887280515593756672}{Magnus Nordborg}
+}
+
+\note{I'm not entirely sure that this is the original source of the idea.
+}
+\end{frame}
+
+
+\begin{frame}[c]{}
+
+  \bbi
+\item Share more
+\item Share sooner
+\item Share in a way that it's easy for others to learn from and
+  build upon
+  \ei
+
+  \note{
+    It's easy for me to say, but I think the benefits, to the
+    community, of open science far outweigh the risks to individual
+    investigators. Sort of like vaccines.
+    }
+
+\end{frame}
+
+
+
+\begin{frame}[c]{What to share?}
+
+  \bi
+\item For sure
+  \bi
+\item Primary dataset
+\item Metadata
+\item Data cleaning scripts
+\item Analysis scripts
+  \ei
+\item It could help
+  \bi
+\item Very-raw data
+\item Processed/clean data
+\item Intermediate results
+  \ei
+\item No
+  \bi
+\item Confidential data (e.g. HIPAA data)
+\item Passwords, private keys
+  \ei
+  \ei
+
+  \note{It can be tricky to define what is the ``primary dataset''.
+    How raw of data should you share? Where would someone want to
+    start, and how can you make it easiest for them to dig into your
+    analyses or make use of the data for other purposes, such as for a
+    meta-analysis study? In some cases, it can be valuable to share
+    many of the intermediate results, so that folks can jump into the
+    bit that they care about without having to first run a bunch of
+    complex and time-consuming analyses to get there.
+
+    You definitely want to make sure that you're not including any
+    confidential information, particularly regarding patient-level
+    data, but also private keys for data APIs which you might be
+    including in your scripts.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{Where to share?}
+
+  \bi
+\item Domain-specific repository
+  \bi
+  \item Genbank, dbGaP, etc.
+  \item See \href{http://re3data.org}{\tt re3data.org}
+  \ei
+\item \href{https://figshare.com}{Figshare}, \href{https://datadryad.org}{Dryad}, \href{https://zenodo.org}{Zenodo}
+\item Institutional repository
+  \item \href{https://github.com}{GitHub}, \href{https://bitbucket.org}{BitBucket}
+  \ei
+
+  \note{Share code at GitHub or BitBucket. But how about data?
+    Consider domain-specific repositories like dbGaP, then general
+    data repositories like Zenodo, and then look to see whether your
+    institution has a data repository.
+
+    Another option is as supplemental material for a publication, at
+    the Journal's website, but this is often the most cumbersome for
+    users.}
+\end{frame}
+
+
+\begin{frame}[c]{Resources}
+
+  \bi
+\item R Markdown
+  \bi
+    \item \href{https://rmarkdown.rstudio.com}{\tt rmarkdown.rstudio.com}
+  \ei
+\item R Packages
+  \bi
+    \item Releasing to CRAN:
+      \href{http://r-pkgs.had.co.nz/release.html}{\tt \footnotesize r-pkgs.had.co.nz/release.html}
+    \item Leek group: \href{https://github.com/jtleek/rpackages}{\tt
+      \footnotesize github.com/jtleek/rpackages}
+    \item When to trust an R package:
+      \href{https://simplystatistics.org/2015/11/06/how-i-decide-when-to-trust-an-r-package/}{\tt
+        \footnotesize bit.ly/trust\_r\_pkg}
+  \ei
+\item Make
+  \bi
+    \item \href{http://kbroman.org/minimal_make}{\tt kbroman.org/minimal\_make}
+    \item remake R package,
+      \href{https://github.com/richfitz/remake}{\tt github.com/richfitz/remake}
+  \ei
+\item Git
+  \bi
+    \item Git branches:
+      \href{https://nicercode.github.io/git/branches.html}{\tt
+        \footnotesize nicercode.github.io/git/branches.html}
+    \item Hadley on Git/GitHub:
+      \href{http://r-pkgs.had.co.nz/git.html}{\tt \footnotesize r-pkgs.had.co.nz/git.html}
+    \item Git subtrees:
+      \href{https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/}{\tt
+        \footnotesize bit.ly/git\_subtree}
+  \ei
+  \item Also see \href{https://bit.ly/sisbid3_resources}{\tt bit.ly/sisbid3\_resources}
+  \ei
+
+
+
+  \note{ Links to some resources related to the course material. }
+\end{frame}
+
+
+\begin{frame}<handout:0>[c]{}
+
+  \begin{center}
+    \large
+    Some of the things we didn't cover
+  \end{center}
+\end{frame}
+
+
+\begin{frame}[c]{\tt R CMD BATCH}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+\item Scripting lets you run everything in the background
+  \item Increases the odds you've got \emph{everything\/} reproducible
+    \ei
+  \item[] Why didn't we cover it?
+    \bi
+  \item A bit geek-heavy
+    \ei
+  \item[] Where would we point you?
+    \bi
+    \item Stackoverflow discussion:
+      \href{http://bit.ly/so_rscript}{\tt bit.ly/so\_rscript}
+    \item Codecademy Learn the Command Line lesson:
+      \href{http://bit.ly/learn_command_line}{\tt bit.ly/learn\_command\_line}
+   \ei
+ \ei
+
+ \note{
+   Command-line-based programming, such as with {\tt R CMD BATCH}, is
+   really useful for making a project fully reproducible.
+
+   Command-line-based programming gives you more complete control of
+   your workflows.
+ }
+
+\end{frame}
+
+
+
+\begin{frame}[c]{Coding conventions}
+
+  \bbi
+\item[] Why are they cool?
+  \bi
+  \item They help you keep things consistent between team members
+  \item They make code easier to read, and more likely to be used
+  \ei
+\item[] Why didn't we cover them?
+    \bi
+    \item Not enough time
+    \ei
+\item[] Where would we point you?
+    \bi
+    \item Hadley's recommendations
+  \href{http://adv-r.had.co.nz/Style.html}{\tt \footnotesize
+    adv-r.had.co.nz/Style.html}
+    \item Google's recommendations
+  \href{https://google.github.io/styleguide/Rguide.xml}{\tt
+      \footnotesize google.github.io/styleguide/Rguide.xml}
+   \ei
+\ei
+
+ \note{
+   Coding conventions help to keep things consistent and make code
+   easier to read.
+ }
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}[c]{Code review}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+  \item Helps to find bugs and clean up confusing bits
+  \item Potentially a test of the reproducibility of your work
+  \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item Not enough time
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item Software Carpentry blog post,
+    \href{http://bit.ly/swc_codereview}{\tt bit.ly/swc\_codereview}
+  \item Titus Brown's blog post,
+    \href{http://bit.ly/titus_codereview}{\tt http://bit.ly/titus\_codereview}
+   \ei
+\ei
+
+ \note{
+   Working together with another person and reviewing each other's
+   code can lead to better code and better projects.
+ }
+
+\end{frame}
+
+
+
+
+\begin{frame}[c]{Software testing}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+  \item Explicit tests help you to avoid bugs, and to find bugs sooner
+  \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item Not enough time
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item testthat package,
+    \href{https://github.com/hadley/testthat}{\tt github.com/hadley/testthat}
+  \item
+    \href{https://www.amazon.com/Testing-Code-Chapman-Hall-CRC/dp/1498763650}{Testing
+      R Code} book
+   \ei
+\ei
+
+ \note{
+   Hadley wrote, ``It's not that we don't test our code, it's that we don't store our tests so they can be re-run automatically.''
+
+   Including explicit tests and running them repeatedly will help you
+   to avoid bugs or at least to find bugs sooner.
+
+ }
+
+\end{frame}
+
+\begin{frame}[c]{Continuous integration (eg Travis)}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+  \item Automatically build and run tests when you push to GitHub
+  \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item Not enough time
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item Julia Silge blog post,
+    \href{https://juliasilge.com/blog/beginners-guide-to-travis/}{\tt juliasilge.com/blog/beginners-guide-to-travis}
+  \item Hadley's R packages book,
+    \href{http://r-pkgs.had.co.nz/check.html\#travis}{\tt r-pkgs.had.co.nz/check.html\#travis}
+   \ei
+\ei
+
+ \note{
+   Travis makes it easy to run packages tests regularly.
+ }
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}[c]{Capturing dependencies}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+  \item Ensure that your carefully constructed reproducible project
+    doesn't fail due to a change in one of the packages you use
+  \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item Not enough time
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item packrat package, \href{https://github.com/rstudio/packrat}{\tt github.com/rstudio/packrat}
+  \item checkpoint package,
+    \href{https://github.com/RevolutionAnalytics/checkpoint}{\tt github.com/RevolutionAnalytics/checkpoint}
+   \ei
+\ei
+
+ \note{
+   Saving copies of the exact versions of packages that you use can
+   help ensure that your reproducible project will continue to be
+   reproducible.
+ }
+
+\end{frame}
+
+
+
+
+\begin{frame}[c]{Containers (e.g. docker)}
+
+  \bbi
+\item[] Why are they cool?
+  \bi
+  \item Capture your entire environment, so your project is \emph{for
+    sure\/} fully reproducible.
+  \ei
+\item[] Why didn't we cover them?
+    \bi
+    \item A bit technical
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item
+    \href{https://ropensci.org/blog/blog/2014/10/23/introducing-rocker}{Rocker:
+      Docker for R}
+  \item \href{http://ropenscilabs.github.io/r-docker-tutorial/}{R
+    Docker tutorial}
+   \ei
+\ei
+
+ \note{
+   Docker containers allow you to encapsulate your entire environment
+   (including the operating system and all libraries) for
+   \emph{full\/} reproducibility.
+ }
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}[c]{R Markdown templates}
+
+  \bbi
+\item[] Why are they cool?
+  \bi
+  \item More complete control over the appearance of your document
+  \ei
+\item[] Why didn't we cover them?
+    \bi
+    \item A bit technical
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item
+    \href{http://rmarkdown.rstudio.com/developer_document_templates.html}{R
+        Markdown documentation}
+   \ei
+\ei
+
+ \note{
+   Document templates give you full control over the appearance of
+   your R Markdown document output.
+ }
+
+\end{frame}
+
+
+
+\begin{frame}[c]{knitr Bootstrap}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+\item Allows for generation of slicker reports
+  \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item A bit technical
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item \href{https://github.com/jimhester/knitrBootstrap}{\tt github.com/jimhester/knitrBootstrap}
+   \ei
+\ei
+
+ \note{
+    bootstrap-styled reports
+ }
+
+\end{frame}
+
+
+
+\begin{frame}[c]{GitHub pages}
+
+  \bbi
+\item[] Why are they cool?
+  \bi
+\item Webpages built entirely in Markdown, providing
+   nicer interfaces to your content
+  \ei
+\item[] Why didn't we cover them?
+    \bi
+    \item Tangential to \emph{reproducible research}?
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item \href{https://pages.github.com}{\tt pages.github.com}
+  \item \href{http://kbroman.org/simple_site}{\tt kbroman.org/simple\_site}
+  \item \href{https://bookdown.org/yihui/blogdown/}{\tt bookdown.org/yihuit/blogdown}
+   \ei
+\ei
+
+ \note{
+    Slick web pages from a github repository
+ }
+
+\end{frame}
+
+
+
+
+\begin{frame}[c]{Bookdown}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+\item Write a book (or book-like object) entirely in R Markdown
+  \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item Not enough time
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item \href{https://bookdown.org/yihui/bookdown/}{\tt bookdown.org/yihui/bookdown}
+   \ei
+\ei
+
+ \note{
+    Surprisingly easy way to create an e-book or website.
+ }
+
+\end{frame}
+
+
+
+
+
+\begin{frame}[c]{Shiny!}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+\item Interactive pictures have pizzazz.
+  \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item Tangential to \emph{reproducible research}?
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item \href{http://shiny.rstudio.com/}{\tt shiny.rstudio.com}
+  \item \href{http://shiny.rstudio.com/tutorial}{\tt shiny.rstudio.com/tutorial}
+   \ei
+\ei
+
+ \note{
+    Interactive R-based web apps
+ }
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+\begin{frame}[c]{Feedback we'd like from you (1)}
+
+  {\lolit What motivated us to teach this course? \\
+  What would we see as a positive outcome? \\[18pt]}
+
+  \bi
+\item Given this motivation, are we doing things right?
+\item What motivated you to take this course?
+\item Were there specific sessions you found really useful/really
+    useless?
+  \item Points you'd like us to expand on?
+  \item Were there points you were hoping we'd cover that we didn't?
+    \ei
+
+  \note{}
+
+
+\end{frame}
+
+
+
+\begin{frame}[c]{Feedback we'd like from you (2)}
+
+  \bi
+\item Do you have examples/anecdotes you think we might be able to use
+  that you'd be willing to share?
+\item Were there ways we could've used time more effectively?
+\item Were there ways we could've used our TAs more effectively?
+  \item Can you see things you learned in this course changing how you
+    do things day to day?
+    \bi
+  \item Why or why not?
+  \item Can we ask you again in 6 months?
+  \item Can we ask you again in a year?
+    \ei
+
+ \item Could you write this down now? (anonymous is fine)
+    \ei
+
+  \note{}
+
+
+\end{frame}
+
+
+
+
+\end{document}
