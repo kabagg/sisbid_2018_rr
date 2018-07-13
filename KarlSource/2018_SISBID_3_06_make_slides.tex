@@ -1,0 +1,262 @@
+\documentclass[12pt,t]{beamer}
+\usepackage{graphicx}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\usepackage{listings}
+
+\input{LaTeX/header.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% title info
+\title{6: GNU Make}
+\author{}
+\date{\href{https://bit.ly/SISBID3}{\tt \color{foreground} bit.ly/SISBID3}}
+
+\begin{document}
+
+% title slide
+{
+\setbeamertemplate{footline}{} % no page number here
+\frame{
+  \titlepage
+  \note{Here, we'll talk about automating the entire workflow for a
+    project using the tool GNU Make.
+} } }
+
+
+
+
+
+\begin{frame}[fragile,c]{Automate the process (GNU Make)}
+
+\begin{center}
+\begin{minipage}[c]{10.8cm}
+\begin{semiverbatim}
+\begin{lstlisting}[escapechar=!,linewidth=10.8cm]
+!{\color{foreground}{R/analysis.html}}!: !{\color{foreground}{R/analysis.Rmd Data/cleandata.csv}}!
+!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}}!
+
+Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
+    cd R;R CMD BATCH prepData.R
+
+RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
+    Python/xls2csv.py RawData/rawdata.xls > RawData/rawdata.csv
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+
+\note{GNU Make is an old (and rather quirky) tool for automating the
+  process of building computer programs. But it's useful much more
+  broadly, and I find it valuable for automating the full process of
+  data file manipulation, data cleaning, and analysis.
+
+  In addition to {\nhilit automating} a complex process, it also
+  {\nhilit documents} the process, including the dependencies among
+  data files and scripts.
+}
+\end{frame}
+
+
+\begin{frame}<handout:0>[fragile,c]{Automate the process (GNU Make)}
+
+\addtocounter{framenumber}{-1}
+
+\begin{center}
+\begin{minipage}[c]{10.8cm}
+\begin{semiverbatim}
+\begin{lstlisting}[escapechar=!,linewidth=10.8cm]
+!{\color{codehilit}{R/analysis.html}}!: !{\color{foreground}{R/analysis.Rmd Data/cleandata.csv}}!
+!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}}!
+
+Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
+    cd R;R CMD BATCH prepData.R
+
+RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
+    Python/xls2csv.py RawData/rawdata.xls > RawData/rawdata.csv
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}<handout:0>[fragile,c]{Automate the process (GNU Make)}
+
+\addtocounter{framenumber}{-1}
+
+\begin{center}
+\begin{minipage}[c]{10.8cm}
+\begin{semiverbatim}
+\begin{lstlisting}[escapechar=!,linewidth=10.8cm]
+!{\color{foreground}{R/analysis.html}}!: !{\color{codehilit}{R/analysis.Rmd Data/cleandata.csv}}!
+!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}}!
+
+Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
+    cd R;R CMD BATCH prepData.R
+
+RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
+    Python/xls2csv.py RawData/rawdata.xls > RawData/rawdata.csv
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}<handout:0>[fragile,c]{Automate the process (GNU Make)}
+
+\addtocounter{framenumber}{-1}
+
+\begin{center}
+\begin{minipage}[c]{10.8cm}
+\begin{semiverbatim}
+\begin{lstlisting}[escapechar=!,linewidth=10.8cm]
+!{\color{foreground}{R/analysis.html}}!: !{\color{foreground}{R/analysis.Rmd Data/cleandata.csv}}!
+!{\color{codehilit}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}}!
+
+Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
+    cd R;R CMD BATCH prepData.R
+
+RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
+    Python/xls2csv.py RawData/rawdata.xls > RawData/rawdata.csv
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}{Automation with GNU Make}
+
+\vspace{24pt}
+
+\bi
+\itemsep12pt
+\item {\tt Make} is for more than just compiling software
+\item The {\color{hilit} essence} of what we're trying to do
+\item Automates a workflow
+\item Documents the workflow
+\item Documents the dependencies among data files, code
+\item Re-runs only the necessary code, based on what has changed
+\ei
+
+
+\note{People usually think of Make as a tool for automating the
+  compilation of software, but it can be used much more generally.
+
+  To me, Make is the essential tool for reproducible research:
+  automation plus the documentation of dependencies and workflows.
+}
+\end{frame}
+
+
+
+
+
+\begin{frame}[fragile]{Fancier example}
+
+\begin{semiverbatim}
+\begin{lstlisting}
+FIG_DIR = Figs
+
+mypaper.pdf: mypaper.tex $(FIG_DIR)/fig1.pdf $(FIG_DIR)/fig2.pdf
+    pdflatex mypaper
+
+# One line for both figures
+$(FIG_DIR)/%.pdf: R/%.R
+    cd R;R CMD BATCH $(<F)
+
+# Use "make clean" to remove the PDFs
+clean:
+    rm *.pdf Figs/*.pdf
+\end{lstlisting}
+\end{semiverbatim}
+
+\note{As I said, you can get really fancy with GNU Make.
+
+  Use variables for directory names or compiler flags. (This example
+  is not a good one.)
+
+  Use pattern rules and automatic variables to avoid repeating
+  yourself. With {\tt \%}, we have one line covering both
+  {\tt fig1.pdf} and {\tt fig2.pdf}. The {\tt \$(<F)}
+  is the file part of
+  the first dependency.
+
+  Look at the manual for Make and the many online tutorials, such as
+  the one from Software Carpentry, or {\tt http://kbroman.org/minimal\_make}.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{Installing Make}
+
+  \bbi
+  \item On Macs, Make should be installed. Type {\tt make --version}
+    to check.
+
+  \item On Windows, probably the easiest is to install
+    \href{https://cran.r-project.org/bin/windows/Rtools/}{Rtools},
+    which includes Make.
+    \bi
+    \item[]
+      \href{https://cran.r-project.org/bin/windows/Rtools}{\tt
+        \footnotesize cran.r-project.org/bin/windows/Rtools}
+      \ei
+      \ei
+
+      \note{
+        Installation of these sorts of command-line tools on Windows
+        can be a bit difficult.
+      }
+
+\end{frame}
+
+
+\begin{frame}[fragile]{How do you use Make?}
+
+\vspace{6pt}
+
+{\small
+\bi
+\item If you name your make file {\tt Makefile}, then just go into the
+directory containing that file and type {\tt \color{hilit} make}
+
+\item If you name your make file {\tt something.else}, then type \\
+{\tt \color{hilit} make -f something.else}
+
+\item Actually, the commands above will build the {\color{vhilit} first}
+  target listed in the make file. So I'll often include something like
+  the following.
+
+\begin{quote}
+{\tt \color{hilit} all: target1 target2 target3}
+\end{quote}
+
+  Then typing {\tt \color{hilit} make all} (or just {\tt
+    \color{hilit} make}, if {\tt \color{hilit} all} is listed
+  first in the file) will build all of those
+  things.
+
+\item To be build a specific target, type {\tt \color{hilit} make target}.
+  For example, {\tt \color{hilit} make Figs/fig1.pdf}
+\ei
+}
+
+\note{
+  Details on the use.
+}
+\end{frame}
+
+
+
+\end{document}
