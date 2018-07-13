@@ -1,16 +1,16 @@
 all: lectures printable Figs/rmd_compilation_fig.png
 
-lectures: ../2018_SISBID_3_01_introduction_slides.pdf \
-		  ../2018_SISBID_3_05_bigjobs_slides.pdf \
-		  ../2018_SISBID_3_06_make_slides.pdf \
-		  ../2018_SISBID_3_13_summary_slides.pdf \
-		  ../2018_SISBID_3_03_example.Rmd \
-		  ../2018_SISBID_3_03_Rmarkdown.md
+lectures: ../2018_SISBID-RR_01_introduction_slides.pdf \
+		  ../2018_SISBID-RR_05_bigjobs_slides.pdf \
+		  ../2018_SISBID-RR_06_make_slides.pdf \
+		  ../2018_SISBID-RR_13_summary_slides.pdf \
+		  ../2018_SISBID-RR_03_example.Rmd \
+		  ../2018_SISBID-RR_03_Rmarkdown.md
 
-printable: ../2018_SISBID_3_01_introduction_printable.pdf \
-		   ../2018_SISBID_3_05_bigjobs_printable.pdf \
-		   ../2018_SISBID_3_06_make_printable.pdf \
-		   ../2018_SISBID_3_13_summary_printable.pdf
+printable: ../2018_SISBID-RR_01_introduction_printable.pdf \
+		   ../2018_SISBID-RR_05_bigjobs_printable.pdf \
+		   ../2018_SISBID-RR_06_make_printable.pdf \
+		   ../2018_SISBID-RR_13_summary_printable.pdf
 
 ../%.pdf: %.pdf
 	cp $< ../
