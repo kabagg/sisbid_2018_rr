@@ -207,7 +207,7 @@ clean:
   yourself. With {\tt \%}, we have one line covering both
   {\tt fig1.pdf} and {\tt fig2.pdf}. The {\tt \$(<F)}
   is the file part of
-  the first dependency.
+  the first dependency. More on this later.
 
   Look at the manual for Make and the many online tutorials, such as
   the one from Software Carpentry, or {\tt http://kbroman.org/minimal\_make}.
@@ -276,6 +276,32 @@ directory containing that file and type {\tt \color{hilit} make}
 }
 \end{frame}
 
+
+
+
+
+\begin{frame}[fragile]{Variables}
+
+  \bbi
+\item Define a {\color{vhilit} variable} like
+
+  {\color{hilit} \verb|R_OPTS=--vanilla|}
+
+\item Use it with a \verb|$| and \verb|()| or \verb|{}|, for example:
+
+  {\color{hilit} \verb|R CMD BATCH $(R_OPTS) fig1.R|}
+
+\item I actually use the following, which is \verb|--vanilla| without \verb|--no-environ-file|
+
+  {\tt R\_OPTS=--no-save --no-restore --no-init-file --no-site-file}
+
+  \ei
+
+\note{Variables are useful shorthand, for bits of code that you want to
+  use repeatedly.}
+
+
+\end{frame}
 
 
 \end{document}
