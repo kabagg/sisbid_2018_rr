@@ -139,15 +139,19 @@ A review of several factors which can make results harder to replicate (be seen 
 
 [slides](Slides/2018_SISBID-RR_07_problems_w_replication.pdf), [printable version](Slides/2018_SISBID-RR_07_problems_w_replication_printable.pdf)
 
-**Lecture 8, Git on your Computer, Keith, 50 min, mostly live**
+**Lecture 8, Git/GitHub 1: Sharing and RR, Keith, 50 min, mostly live**
 
-Using git to track files and versions; init, status, add, commit, branch, checkout, merge
+Using Git/GitHub to share and track versioned files and workflows; using Git/GitHub in an RR workflow
+
+[slides](Slides/2018_SISBID-RR_08_git_1_sharing.pdf), [printable version](Slides/2018_SISBID-RR_08_git_1_sharing_printable.pdf)
 
 ### Session 6, 10:30-12
 
-**Lecture 9, Git with GitHub, Keith, 45 min**
+**Lecture 9, Git/GitHub 2: Branching and Merging, Keith, 45 min**
 
-Introducing GitHub, perhaps the "killer app" for git; working with remote repositories, bare repos, cloning, pull, push
+Dealing with concurrent development, when things break, and conflicts
+
+[slides](Slides/2018_SISBID-RR_09_git_2_branching.pdf), [printable version](Slides/2018_SISBID-RR_09_git_2_branching_printable.pdf)
 
 **Homework, participants, 45 min**
 
