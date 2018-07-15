@@ -81,17 +81,25 @@ Introduction to the course, administration, course goals
 
 Definitions - reproduction vs replication
 
+[slides](Slides/2018_SISBID-RR_00_basic_intro.pdf), [printable version](Slides/2018_SISBID-RR_00_basic_intro_printable.pdf)
+
 **Lecture 1, Intro and Common Problems, Karl, 40 min**
 
 An introduction to reproducible research by way of commonly encountered problems
+
+[slides](Slides/2018_SISBID-RR_01_introduction_slides.pdf), [printable version](Slides/2018_SISBID-RR_01_introduction_printable.pdf)
 
 **Lecture 2, A Train Wreck, Keith, 40 min**
 
 A case study describing just how bad things can get, with clinical implications
 
+[slides](Slides/2018_SISBID-RR_02_train_wreck.pdf), [printable version](Slides/2018_SISBID-RR_02_train_wreck_printable.pdf)
+
 ### Session 2, 10:30-12
 
 **Lecture 3, R Markdown and Literate Programming, Karl, 45 min**
+
+[Rmd source](Slides/2018_SISBID-RR_03_example.Rmd), [md output](Slides/2018_SISBID-RR_03_Rmarkdown.md)
 
 **Homework part 1, participants, 45 min**
 Set up the analysis folder, write the preprocessing script in R markdown, compile to html / pdf / word
@@ -99,6 +107,8 @@ Set up the analysis folder, write the preprocessing script in R markdown, compil
 ### Session 3, 1:30-3
 
 **Lecture 4, R Packages, Keith, 45-60 min (much live demo)**
+
+[slides](Slides/2018_SISBID-RR_04_r_packages.pdf), [printable version](Slides/2018_SISBID-RR_04_r_packages_printable.pdf)
 
 **Homework part 2, participants, 30 min**
 
@@ -110,9 +120,13 @@ writing a basic package
 
 Capturing exploratory data analysis, handling the challenges arising when data or jobs are big enough to make rerunning unpleasant or infeasible.
 
+[slides](Slides/2018_SISBID-RR_05_bigjobs_slides.pdf), [printable version](Slides/2018_SISBID-RR_05_bigjobs_printable.pdf)
+
 **Lecture 6, Make, Karl, 45 min**
 
 A brief introduction to automation with [GNU Make](https://www.gnu.org/software/make/)
+
+[slides](Slides/2018_SISBID-RR_06_make_slides.pdf), [printable version](Slides/2018_SISBID-RR_06_make_printable.pdf)
 
 Day 2, Jul 17, 2018
 -------------------
@@ -122,6 +136,8 @@ Day 2, Jul 17, 2018
 **Lecture 7, Problems with Replication, Keith, 40 min**
 
 A review of several factors which can make results harder to replicate (be seen again with new samples) vs hard to reproduce (starting from the same raw data)
+
+[slides](Slides/2018_SISBID-RR_07_problems_w_replication.pdf), [printable version](Slides/2018_SISBID-RR_07_problems_w_replication_printable.pdf)
 
 **Lecture 8, Git on your Computer, Keith, 50 min, mostly live**
 
@@ -158,6 +174,8 @@ Add comments and vignettes to your package on GitHub
 
 A review of ongoing efforts within the biostat department at MD Anderson to produce reproducible reports, and how we took a report written a few years ago using a mix of R and Stata and revamped it in R/rmarkdown to emulate not just the results but also the "look and feel" of the initial MS word output. Hits on tables and figures in rmarkdown, references, reformatting headers.
 
+[slides](Slides/2018_SISBID-RR_11_mdacc_start.pdf), [printable version](Slides/2018_SISBID-RR_11_mdacc_start_printable.pdf)
+
 Day 3, Jul 19, 2017
 -------------------
 
@@ -166,6 +184,8 @@ Day 3, Jul 19, 2017
 **Lecture 12, Writing Good Reports, Keith, 45 min**
 
 The "non-codeable" parts of reproducibility - trying to increase the odds your collaborators will understand what it is you're trying to do.
+
+[slides](Slides/2018_SISBID-RR_12_good_reports.pdf), [printable version](Slides/2018_SISBID-RR_12_good_reports_printable.pdf)
 
 **Homework, participants, 45 min**
 
@@ -176,6 +196,8 @@ Automating common tasks with templates - report structures, directory structures
 **Lecture 13, Summary and Wrapup, Karl, 45 min**
 
 Maintaining the Mindset
+
+[slides](Slides/2018_SISBID-RR_13_summary_slides.pdf), [printable version](Slides/2018_SISBID-RR_13_summary_printable.pdf)
 
 **Final Class Discussion**
 
