@@ -70,6 +70,9 @@ Definitions - reproduction vs replication
 An introduction to reproducible research by way of 
 commonly encountered problems
 
+[slides](Slides/2018_SISBID-RR_01_introduction_slides.pdf),
+[printable version](Slides/2018_SISBID-RR_01_introduction_printable.pdf)
+
 **Lecture 2, A Train Wreck, Keith, 40 min**
  
 A case study describing just how bad things can get, 
@@ -78,6 +81,9 @@ with clinical implications
 ### Session 2, 10:30-12
 
 **Lecture 3, R Markdown and Literate Programming, Karl, 45 min** 
+
+[Rmd source](Slides/2018_SISBID-RR_03_example.Rmd),
+[md output](Slides/2018_SISBID-RR_03_Rmarkdown.md)
 
 **Homework part 1, participants, 45 min**  
 Set up the analysis folder, write the preprocessing 
@@ -99,10 +105,16 @@ Capturing exploratory data analysis, handling the
 challenges arising when data or jobs are big enough 
 to make rerunning unpleasant or infeasible. 
 
+[slides](Slides/2018_SISBID-RR_05_bigjobs_slides.pdf),
+[printable version](Slides/2018_SISBID-RR_05_bigjobs_printable.pdf)
+
 **Lecture 6, Make, Karl, 45 min**
 
 A brief introduction to automation with 
 [GNU Make](https://www.gnu.org/software/make/)
+
+[slides](Slides/2018_SISBID-RR_06_make_slides.pdf),
+[printable version](Slides/2018_SISBID-RR_06_make_printable.pdf)
 
 ## Day 2, Jul 17, 2018
 
@@ -171,6 +183,9 @@ Automating common tasks with templates - report structures, directory structures
 **Lecture 13, Summary and Wrapup, Karl, 45 min**
 
 Maintaining the Mindset  
+
+[slides](Slides/2018_SISBID-RR_13_summary_slides.pdf),
+[printable version](Slides/2018_SISBID-RR_13_summary_printable.pdf)
 
 **Final Class Discussion**  
 
