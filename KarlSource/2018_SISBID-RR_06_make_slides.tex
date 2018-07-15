@@ -333,8 +333,40 @@ Here are the ones I use most:
 \end{frame}
 
 
+\begin{frame}[fragile]{Pattern rules}
+
+Pattern rules are like wildcards for file names: if a bunch of files
+are to be built the same way, you can use the symbol {\color{hilit}
+  \verb|%|} as a wildcard.
+
+\bigskip
+
+For example, if you have two figures {\tt fig1.pdf} and {\tt fig2.pdf}
+that are to be built by {\tt fig1.R} and {\tt fig2.R}, respectively,
+you might do:
+
+\bigskip
+
+{\color{hilit}
+
+\verb|Figs/%.pdf: R/%.R|
+
+\verb|    cd $(<D);R CMD BATCH $(<F)|
+}
+
+\bigskip
+
+The two figures' file names will need to be be spelled out somewhere,
+for example as dependencies.
 
 
+\note{Pattern rules can greatly reduce the length of your {\tt
+    Makefile}, but they can also be rather frustrating. I recommend
+  keeping things really simple initially and then move to pattern
+  rules later, after you've been working with Make for a while.}
+
+
+\end{frame}
 
 
 \end{document}
