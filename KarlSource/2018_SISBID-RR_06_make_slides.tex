@@ -300,4 +300,41 @@ directory containing that file and type {\tt \color{hilit} make}
 \end{frame}
 
 
+
+
+
+\begin{frame}[fragile]{Automatic variables}
+
+There are a bunch of {\color{vhilit} automatic variables} that you can use to save
+yourself a lot of typing.
+
+\bigskip
+
+Here are the ones I use most:
+
+\bigskip
+
+{\small
+\def\arraystretch{1.5}
+\begin{tabular}{l@{\hspace{1cm}}l}
+{\color{hilit} \verb|$@|} & the file name of the target \\
+{\color{hilit} \verb|$<|} &  the name of the first dependency \\
+{\color{hilit} \verb|$^|} &  the names of all dependencys \\
+{\color{hilit} \verb|$(@D)|} &  the directory part of the target \\
+{\color{hilit} \verb|$(@F)|} &  the file part of the target \\
+{\color{hilit} \verb|$(<D)|} &  the directory part of the first dependency \\
+{\color{hilit} \verb|$(<F)|} &  the file part of the first dependency
+\end{tabular}
+}
+
+\note{You'll see on the next slide how automatic variables get used.}
+
+
+\end{frame}
+
+
+
+
+
+
 \end{document}
