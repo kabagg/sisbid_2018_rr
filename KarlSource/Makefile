@@ -1,24 +1,24 @@
 all: lectures printable Figs/rmd_compilation_fig.png
 
-lectures: ../2018_SISBID-RR_01_introduction_slides.pdf \
-		  ../2018_SISBID-RR_05_bigjobs_slides.pdf \
-		  ../2018_SISBID-RR_06_make_slides.pdf \
-		  ../2018_SISBID-RR_13_summary_slides.pdf \
-		  ../2018_SISBID-RR_03_example.Rmd \
-		  ../2018_SISBID-RR_03_Rmarkdown.md
+lectures: ../Slides/2018_SISBID-RR_01_introduction_slides.pdf \
+	  ../Slides/2018_SISBID-RR_05_bigjobs_slides.pdf \
+	  ../Slides/2018_SISBID-RR_06_make_slides.pdf \
+	  ../Slides/2018_SISBID-RR_13_summary_slides.pdf \
+	  ../Slides/2018_SISBID-RR_03_example.Rmd \
+	  ../Slides/2018_SISBID-RR_03_Rmarkdown.md
 
-printable: ../2018_SISBID-RR_01_introduction_printable.pdf \
-		   ../2018_SISBID-RR_05_bigjobs_printable.pdf \
-		   ../2018_SISBID-RR_06_make_printable.pdf \
-		   ../2018_SISBID-RR_13_summary_printable.pdf
+printable: ../Slides/2018_SISBID-RR_01_introduction_printable.pdf \
+	   ../Slides/2018_SISBID-RR_05_bigjobs_printable.pdf \
+	   ../Slides/2018_SISBID-RR_06_make_printable.pdf \
+	   ../Slides/2018_SISBID-RR_13_summary_printable.pdf
 
-../%.pdf: %.pdf
+../Slides/%.pdf: %.pdf
 	cp $< ../
 
-../%.md: %.md
+../Slides/%.md: %.md
 	cp $< ../
 
-../%.Rmd: %.Rmd
+../Slides/%.Rmd: %.Rmd
 	cp $< ../
 
 %_slides.pdf: %_slides.tex LaTeX/header.tex
