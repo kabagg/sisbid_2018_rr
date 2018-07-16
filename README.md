@@ -227,5 +227,6 @@ General
 -   [Justin Kitzes et al, The Practice of Reproducible Research](https://www.amazon.com/Practice-Reproducible-Research-Data-Intensive-Sciences-ebook/dp/B075H9Y7W3/ref=mt_kindle?_encoding=UTF8&me=&qid=1530358798&dpID=51Q35-OA11L&preST=_SY445_QL70_&dpSrc=detail), [online version](https://www.practicereproducibleresearch.org/)
 -   [Hadley Wickham, R Packages (2015)](http://www.amazon.com/R-Packages-Hadley-Wickham-ebook/dp/B00VAYCHL0/ref=pd_sim_351_6?ie=UTF8&refRID=1E8HS30WBHRCW45SEWXM), [online version](http://r-pkgs.had.co.nz/)
 -   [Yihui Xie, Dynamic Documents with R and knitr, 2e (2015)](http://www.amazon.com/Dynamic-Documents-knitr-Second-Chapman-ebook/dp/B00ZBYPJEW/ref=tmm_kin_title_0?_encoding=UTF8&sr=&qid=)
+-   [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 -   [Karl Broman's Tools for RR Course](http://kbroman.org/Tools4RR/)
 -   Other links: [`resources.md`](Resources/resources.md)
