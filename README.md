@@ -120,7 +120,7 @@ writing a basic package
 
 Capturing exploratory data analysis, handling the challenges arising when data or jobs are big enough to make rerunning unpleasant or infeasible.
 
-[slides](Slides/2018_SISBID-RR_05_bigjobs_slides.pdf), [printable version](Slides/2018_SISBID-RR_05_bigjobs_printable.pdf)
+[slides](Slides/2018_SISBID-RR_05_bigjobs_slides.pdf), [printable version](Slides/2018_SISBID-RR_05_bigjobs_printable.pdf), [spin example](Slides/2018_SISBID-RR_05_spin_example.R)
 
 **Lecture 6, Make, Karl, 45 min**
 

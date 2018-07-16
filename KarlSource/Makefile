@@ -5,7 +5,8 @@ lectures: ../Slides/2018_SISBID-RR_01_introduction_slides.pdf \
 	  ../Slides/2018_SISBID-RR_06_make_slides.pdf \
 	  ../Slides/2018_SISBID-RR_13_summary_slides.pdf \
 	  ../Slides/2018_SISBID-RR_03_example.Rmd \
-	  ../Slides/2018_SISBID-RR_03_Rmarkdown.md
+	  ../Slides/2018_SISBID-RR_03_Rmarkdown.md \
+	  ../Slides/2018_SISBID-RR_05_spin_example.R
 
 printable: ../Slides/2018_SISBID-RR_01_introduction_printable.pdf \
 	   ../Slides/2018_SISBID-RR_05_bigjobs_printable.pdf \
@@ -19,6 +20,9 @@ printable: ../Slides/2018_SISBID-RR_01_introduction_printable.pdf \
 	cp $< ../Slides/
 
 ../Slides/%.Rmd: %.Rmd
+	cp $< ../Slides/
+
+../Slides/%.R: %.R
 	cp $< ../Slides/
 
 %_slides.pdf: %_slides.tex LaTeX/header.tex
