@@ -126,41 +126,113 @@ as targets within the makefile.
 
 What happens if you run `make all` twice?
 
-# Using Git on Your Machine (Day 2, Session 1)
+# Using Git/GitHub (Day 2, Session 1)
 
-Create a git repository for either your R Markdown report or your package from yesterday (or both), using either RStudio or the command line.
+Set up a new empty repo on GitHub.
+Set up a new Project in RStudio, linking it to 
+your GitHub repo. 
+
+What files are in your project to begin with?
+What does the git pane show?
 
 Add and commit the files you deem relevant.
 
 Create a `.gitignore` file and add files you don't want to track regularly (e.g., pdf, word, or html output files) to this. Add and commit the `.gitignore` file. 
 
-`checkout` the version of the repo from before you added the vignette. 
+For a recent project you've worked on, write
+a README.Rmd file, setting the output type 
+to github\_document. What was the project 
+about? What data were you working with?
+Are there relevant papers that have emerged
+that should be linked to?
 
-Create a new branch, "alternate", starting from this version. Use `git status` to see which branch you're working on (also look at the git pane in RStudio). Add a different version of the same vignette as above, with the same name, differing only with respect to which columns of values are used. Add and commit this to the alternate branch. 
+Knit the README to produce README.md. Add and commit
+both versions of the README, and push them to GitHub.
+Does the README look useful? What other info would 
+be useful?
 
-Use `git merge` to fuse the two branches back together. This will cause a conflict, which `git` will ask you to resolve. Edit the vignette to choose your preferred version and include a note that the other version was tried as well, and comment on whether the differences (if any) looked meaningful. 
+Set up the folder structure you prefer. 
+Generate a small dataset for plotting, e.g.
 
-# Using Git with Your GitHub Account (Day 2, Session 2)
+```{r, small_data}
 
-Create a new repository at GitHub for your R package.
+set.seed(123)
 
-Link the package folder on your computer to the GitHub repo using
+n_obs <- 100
+small_data <- 
+  matrix(rnorm(2 * n_obs), nrow = n_obs, ncol = 2)
+colnames(small_data) <- c("x", "y")
+small_data[1:10, "y"] <- 
+  small_data[1:10, "y"] + 4
 
-`git remote add origin https://github.com/username/packagename`
+```
 
-`git push -u origin master`
+Save the data in a csv file in your preferred folder.
+Add a link to the csv file to your README. Add, commit, 
+push. 
 
-(or do this using the RStudio links)
+Write a script to load and plot the data, adding some
+description of what you see. Use here to tell your 
+script where to find the data. Add, commit, push. 
 
-Confirm that the repo is now on GitHub
+Write either a make\_all.R script or a Makefile
+to run your first script above, leaving it general
+enough that adding another script would be trivial. 
+Use here to specify where the outputs should go. 
+Add, commit, push. 
 
-Add a new function to your package on your computer. Document and recompile. When it works, upgrade the version number slightly. Add and commit your changes. 
+Edit the README to include links to your script
+and a brief description of your workflow.
+Add, commit, push. 
 
-Push the latest version of your repo to your GitHub repo. Confirm that it now shows the latest version. 
+Is this complete?
 
-Close the current project in RStudio, and open a new (empty) one. Clone a copy of your GitHub repo to this project.
+Set up a second new RStudio project, link it to 
+the GitHub repo above, and pull. When you run 
+the scripts, do you get the same results?
 
-Repeat the above process. This time we want to work on the earlier version of the repo. How can you get this from GitHub? Can you get this from what you _can_ clone?
+Suggest something you might do that would cause
+the results to be divergent. 
+
+# Branching and Merging with Git/GitHub (Day 2, Session 2)
+
+On your machine, create a new development branch
+to add a second analysis script (e.g., producing
+color versions of the plot above); don't link this 
+one to GitHub. Draft and compile your script.
+Add and commit. 
+
+Look at the Git History popup. Do you see how 
+your development branch differs from master?
+Switch back and forth between the history for 
+master and development to get a feel for the
+changes. Look for the additions (green highlighting)
+and deletions (reddish highlighting) in altered 
+files (this is what git diff is doing).
+
+Merge your development branch back into master.
+What do the history displays look like now?
+Prune this development branch, since you're done
+with it. 
+
+Set up another local (non GitHub) 
+development branch. Change something
+in the development branch, and then change the same
+thing in the master branch in an incompatible way. 
+Try to merge the development branch back into master.
+Resolve the merge conflict, and add and commit the
+final file with your revisions. What does the 
+history look like now? Prune the branch when
+you're done with it. 
+
+Now add a development branch with a corresponding
+tracking branch for GitHub. Make changes to the 
+development branch, and Add, Commit, and Push. 
+Set up a pull request, adding a few comments. 
+Accept (or reject) the pull request. Use pulls to 
+update your local versions of the repo. When you're
+done with the development branch, prune it and the 
+associated tracking branch.
 
 # Collaborating with Others Using GitHub (Day 2, Sessions 3/4)
 
