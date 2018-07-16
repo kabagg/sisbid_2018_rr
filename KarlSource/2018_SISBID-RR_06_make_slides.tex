@@ -179,42 +179,6 @@ RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
 
 
 
-\begin{frame}[fragile]{Fancier example}
-
-\begin{semiverbatim}
-\begin{lstlisting}
-FIG_DIR = Figs
-
-mypaper.pdf: mypaper.tex $(FIG_DIR)/fig1.pdf $(FIG_DIR)/fig2.pdf
-    pdflatex mypaper
-
-# One line for both figures
-$(FIG_DIR)/%.pdf: R/%.R
-    cd R;R CMD BATCH $(<F)
-
-# Use "make clean" to remove the PDFs
-clean:
-    rm *.pdf Figs/*.pdf
-\end{lstlisting}
-\end{semiverbatim}
-
-\note{As I said, you can get really fancy with GNU Make.
-
-  Use variables for directory names or compiler flags. (This example
-  is not a good one.)
-
-  Use pattern rules and automatic variables to avoid repeating
-  yourself. With {\tt \%}, we have one line covering both
-  {\tt fig1.pdf} and {\tt fig2.pdf}. The {\tt \$(<F)}
-  is the file part of
-  the first dependency. More on this later.
-
-  Look at the manual for Make and the many online tutorials, such as
-  the one from Software Carpentry, or {\tt http://kbroman.org/minimal\_make}.
-}
-\end{frame}
-
-
 
 \begin{frame}[c]{Installing Make}
 
@@ -278,7 +242,6 @@ directory containing that file and type {\tt \color{hilit} make}
 
 
 
-
 \begin{frame}[c]{Make with R Markdown}
 
 
@@ -316,16 +279,8 @@ to add the relevant directory to your {\tt PATH}.
     the thing into HTML (or PDF or Word) from the command line. The
     key trick is getting the operating system to know where pandoc can
     be located.  You may also need to tell it about the location of R.
-}
 
-\end{frame}
-
-
-\begin{frame}[c]{Common challenge}
-
-\centerline{\Large PATH}
-
-\note{{\tt PATH} is an environment/system variable that indicates which
+  {\tt PATH} is an environment/system variable that indicates which
   directories the operating system should look through to find
   executable programs.
 
@@ -335,9 +290,8 @@ to add the relevant directory to your {\tt PATH}.
 
   It can be tricky to get the {\tt PATH} variable set properly.
 }
-
-
 \end{frame}
+
 
 
 \begin{frame}[fragile]{{\tt {\textasciitilde}/.bash\_profile}}
@@ -446,7 +400,6 @@ Consider testing your code on a more basic account.
 
 
 
-
 \begin{frame}[fragile]{Automatic variables}
 
 There are a bunch of {\color{vhilit} automatic variables} that you can use to save
@@ -511,6 +464,46 @@ for example as dependencies.
 
 
 \end{frame}
+
+
+
+\begin{frame}[fragile]{Fancier example}
+
+\begin{semiverbatim}
+\begin{lstlisting}
+FIG_DIR = Figs
+
+mypaper.pdf: mypaper.tex $(FIG_DIR)/fig1.pdf $(FIG_DIR)/fig2.pdf
+    pdflatex mypaper
+
+# One line for both figures
+$(FIG_DIR)/%.pdf: R/%.R
+    cd R;R CMD BATCH $(<F)
+
+# Use "make clean" to remove the PDFs
+clean:
+    rm *.pdf Figs/*.pdf
+\end{lstlisting}
+\end{semiverbatim}
+
+\note{As I said, you can get really fancy with GNU Make.
+
+  Use variables for directory names or compiler flags. (This example
+  is not a good one.)
+
+  Use pattern rules and automatic variables to avoid repeating
+  yourself. With {\tt \%}, we have one line covering both
+  {\tt fig1.pdf} and {\tt fig2.pdf}. The {\tt \$(<F)}
+  is the file part of
+  the first dependency. More on this later.
+
+  Look at the manual for Make and the many online tutorials, such as
+  the one from Software Carpentry, or {\tt http://kbroman.org/minimal\_make}.
+}
+\end{frame}
+
+
+
 
 \begin{frame}[fragile]{Resources}
 
