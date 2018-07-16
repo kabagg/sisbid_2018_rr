@@ -99,7 +99,7 @@ A case study describing just how bad things can get, with clinical implications
 
 **Lecture 3, R Markdown and Literate Programming, Karl, 45 min**
 
-[Rmd source](Slides/2018_SISBID-RR_03_example.Rmd), [md output](Slides/2018_SISBID-RR_03_Rmarkdown.md)
+[markdown lecture notes](Slides/2018_SISBID-RR_03_Rmarkdown.md), [Rmd example](Slides/2018_SISBID-RR_03_example.Rmd)
 
 **Homework part 1, participants, 45 min**
 Set up the analysis folder, write the preprocessing script in R markdown, compile to html / pdf / word
