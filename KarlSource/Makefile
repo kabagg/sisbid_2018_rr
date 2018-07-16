@@ -13,13 +13,13 @@ printable: ../Slides/2018_SISBID-RR_01_introduction_printable.pdf \
 	   ../Slides/2018_SISBID-RR_13_summary_printable.pdf
 
 ../Slides/%.pdf: %.pdf
-	cp $< ../
+	cp $< ../Slides/
 
 ../Slides/%.md: %.md
-	cp $< ../
+	cp $< ../Slides/
 
 ../Slides/%.Rmd: %.Rmd
-	cp $< ../
+	cp $< ../Slides/
 
 %_slides.pdf: %_slides.tex LaTeX/header.tex
 	xelatex $<
