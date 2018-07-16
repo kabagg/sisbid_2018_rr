@@ -4,9 +4,9 @@ Keith Baggerly and Karl Broman
 July 16-18, 2018
 
 -   [Instructors](#instructors)
--   [[Notes for Participants](Resources/notes_for_participants.md)](#notes-for-participants)
--   [[Course Goals](Resources/course_goals.md)](#course-goals)
--   [[Homework](Resources/homework.md)](#homework)
+-   [Notes for Participants](Resources/notes_for_participants.md)
+-   [Course Goals](Resources/course_goals.md)
+-   [Homework](Resources/homework.md)
 -   [Cheat Sheets](#cheat-sheets)
 -   [Course Syllabus and Lecture Materials](#course-syllabus-and-lecture-materials)
     -   [Day 1, Jul 16, 2018](#day-1-jul-16-2018)
