@@ -38,6 +38,7 @@ Plot the results.
 
 ```{r lineplot}
 ggplot(karl, aes(x=year, y=prop, color=name)) + geom_line()
+
 ```
 
 That's weird. Turns out there were a small number of female Karls.
@@ -52,4 +53,30 @@ Here's an interactive version using the package [plotly](https://plot.ly/r/).
 ```{r plotly, fig.width=12, fig.height=7}
 p <- ggplot(karl, aes(x=year, y=prop, color=name, linetype=sex)) + geom_line()
 plotly::ggplotly(p)
+```
+
+---
+
+I mentioned the use of `dev.args` to get a larger font, but had found
+that it didn't work with ggplot2. To change the font with ggplot, you
+need to do it directly with `theme()`:
+
+```{r lineplot_larger_font}
+ggplot(karl, aes(x=year, y=prop, color=name)) + geom_line() +
+    theme(text=element_text(size=18))
+
+```
+
+`dev.args` works with base graphics, for example consider this scatterplot:
+
+```{r plot_xy}
+plot(rnorm(100), rnorm(100),
+     xlab="x", ylab="y", pch=21, bg="lightblue", las=1)
+```
+
+Versus this one, using `dev.args=list(pointsize=18)`.
+
+```{r plot_xy_larger_font, dev.args=list(pointsize=18)}
+plot(rnorm(100), rnorm(100),
+     xlab="x", ylab="y", pch=21, bg="lightblue", las=1)
 ```
