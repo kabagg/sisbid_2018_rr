@@ -165,6 +165,8 @@ This session will be a mixture of lecture and live demo.
 
 Working with others, making comments, providing feedback, fixing errors
 
+[slides](Slides/2018_SISBID-RR_10_git_3_collab.pdf), [printable version](Slides/2018_SISBID-RR_10_git_3_collab_printable.pdf)
+
 **Homework, participants, 45 min**
 
 Working with your neighbor's repos
