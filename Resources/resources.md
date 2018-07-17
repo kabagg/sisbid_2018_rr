@@ -9,6 +9,7 @@ The following are links to resources of interest to participants in
 - [Knitr in a Knutshell tutorial](http://kbroman.org/knitr_knutshell)
 - [Yihui Xie, Dynamic Documents with R and knitr, 2e (2015)](http://www.amazon.com/Dynamic-Documents-knitr-Second-Chapman-ebook/dp/B00ZBYPJEW/ref=tmm_kin_title_0?_encoding=UTF8&sr=&qid=)
 - [Document templates](http://rmarkdown.rstudio.com/developer_document_templates.html)
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 
 ## R Packages
 
@@ -31,6 +32,7 @@ The following are links to resources of interest to participants in
 - [Git subtrees](https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/)
 - Also look at `git tag` and `git remote` (the latter in the
   [Leek Group guide to R packages](https://github.com/jtleek/rpackages))
+- [Karl's Git/GitHub tutorial](http://kbroman.org/github_tutorial)
 
 ## Sharing
 

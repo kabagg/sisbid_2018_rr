@@ -1,25 +1,29 @@
 all: lectures printable Figs/rmd_compilation_fig.png
 
-lectures: ../2018_SISBID-RR_01_introduction_slides.pdf \
-		  ../2018_SISBID-RR_05_bigjobs_slides.pdf \
-		  ../2018_SISBID-RR_06_make_slides.pdf \
-		  ../2018_SISBID-RR_13_summary_slides.pdf \
-		  ../2018_SISBID-RR_03_example.Rmd \
-		  ../2018_SISBID-RR_03_Rmarkdown.md
+lectures: ../Slides/2018_SISBID-RR_01_introduction_slides.pdf \
+	  ../Slides/2018_SISBID-RR_05_bigjobs_slides.pdf \
+	  ../Slides/2018_SISBID-RR_06_make_slides.pdf \
+	  ../Slides/2018_SISBID-RR_13_summary_slides.pdf \
+	  ../Slides/2018_SISBID-RR_03_example.Rmd \
+	  ../Slides/2018_SISBID-RR_03_Rmarkdown.md \
+	  ../Slides/2018_SISBID-RR_05_spin_example.R
 
-printable: ../2018_SISBID-RR_01_introduction_printable.pdf \
-		   ../2018_SISBID-RR_05_bigjobs_printable.pdf \
-		   ../2018_SISBID-RR_06_make_printable.pdf \
-		   ../2018_SISBID-RR_13_summary_printable.pdf
+printable: ../Slides/2018_SISBID-RR_01_introduction_printable.pdf \
+	   ../Slides/2018_SISBID-RR_05_bigjobs_printable.pdf \
+	   ../Slides/2018_SISBID-RR_06_make_printable.pdf \
+	   ../Slides/2018_SISBID-RR_13_summary_printable.pdf
 
-../%.pdf: %.pdf
-	cp $< ../
+../Slides/%.pdf: %.pdf
+	cp $< ../Slides/
 
-../%.md: %.md
-	cp $< ../
+../Slides/%.md: %.md
+	cp $< ../Slides/
 
-../%.Rmd: %.Rmd
-	cp $< ../
+../Slides/%.Rmd: %.Rmd
+	cp $< ../Slides/
+
+../Slides/%.R: %.R
+	cp $< ../Slides/
 
 %_slides.pdf: %_slides.tex LaTeX/header.tex
 	xelatex $<

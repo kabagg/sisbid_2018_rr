@@ -18,7 +18,8 @@ July 16-18, 2018
         -   [Session 5, 8:30-10](#session-5-830-10)
         -   [Session 6, 10:30-12](#session-6-1030-12)
         -   [Session 7, 1:30-3](#session-7-130-3)
-        -   [Session 8, 3:30-5](#session-8-330-5)
+-   [**Homework, participants, 45 min**](#homework-participants-45-min)
+    -   [Session 8, 3:30-5](#session-8-330-5)
     -   [Day 3, Jul 19, 2017](#day-3-jul-19-2017)
         -   [Session 9, 8:30-10](#session-9-830-10)
         -   [Session 10, 10:30-12](#session-10-1030-12)
@@ -99,10 +100,9 @@ A case study describing just how bad things can get, with clinical implications
 
 **Lecture 3, R Markdown and Literate Programming, Karl, 45 min**
 
-[Rmd source](Slides/2018_SISBID-RR_03_example.Rmd), [md output](Slides/2018_SISBID-RR_03_Rmarkdown.md)
+[md lecture notes](Slides/2018_SISBID-RR_03_Rmarkdown.md), [Rmd example](Slides/2018_SISBID-RR_03_example.Rmd)
 
-**Homework part 1, participants, 45 min**
-Set up the analysis folder, write the preprocessing script in R markdown, compile to html / pdf / word
+**Homework part 1, participants, 45 min** Set up the analysis folder, write the preprocessing script in R markdown, compile to html / pdf / word
 
 ### Session 3, 1:30-3
 
@@ -120,7 +120,7 @@ writing a basic package
 
 Capturing exploratory data analysis, handling the challenges arising when data or jobs are big enough to make rerunning unpleasant or infeasible.
 
-[slides](Slides/2018_SISBID-RR_05_bigjobs_slides.pdf), [printable version](Slides/2018_SISBID-RR_05_bigjobs_printable.pdf)
+[slides](Slides/2018_SISBID-RR_05_bigjobs_slides.pdf), [printable version](Slides/2018_SISBID-RR_05_bigjobs_printable.pdf), [spin example](Slides/2018_SISBID-RR_05_spin_example.R)
 
 **Lecture 6, Make, Karl, 45 min**
 
@@ -163,18 +163,16 @@ This session will be a mixture of lecture and live demo.
 
 **Lecture 10, Collaborating with Git, Keith, 45 min**
 
-Working with others, making comments, providing feedback, fixing errors
-
 [slides](Slides/2018_SISBID-RR_10_git_3_collab.pdf), [printable version](Slides/2018_SISBID-RR_10_git_3_collab_printable.pdf)
 
 **Homework, participants, 45 min**
+==================================
 
-Working with your neighbor's repos
+Working with others, making comments, providing feedback, fixing errors
 
 ### Session 8, 3:30-5
 
-**Homework, participants, 45 min**
-Add comments and vignettes to your package on GitHub
+**Homework, participants, 45 min** Add comments and vignettes to your package on GitHub
 
 **Lecture 11, Implementing RR at MDACC, Keith, 45 min**
 
@@ -212,8 +210,7 @@ Maintaining the Mindset
 Previous Years
 ==============
 
-Lectures from
-[2016](https://github.com/SISBID/Module3/tree/master/Lectures_from_2016) and [2017](https://github.com/SISBID/Module3).
+Lectures from [2016](https://github.com/SISBID/Module3/tree/master/Lectures_from_2016) and [2017](https://github.com/SISBID/Module3).
 
 Videos from 2015:
 
@@ -229,5 +226,6 @@ General
 -   [Justin Kitzes et al, The Practice of Reproducible Research](https://www.amazon.com/Practice-Reproducible-Research-Data-Intensive-Sciences-ebook/dp/B075H9Y7W3/ref=mt_kindle?_encoding=UTF8&me=&qid=1530358798&dpID=51Q35-OA11L&preST=_SY445_QL70_&dpSrc=detail), [online version](https://www.practicereproducibleresearch.org/)
 -   [Hadley Wickham, R Packages (2015)](http://www.amazon.com/R-Packages-Hadley-Wickham-ebook/dp/B00VAYCHL0/ref=pd_sim_351_6?ie=UTF8&refRID=1E8HS30WBHRCW45SEWXM), [online version](http://r-pkgs.had.co.nz/)
 -   [Yihui Xie, Dynamic Documents with R and knitr, 2e (2015)](http://www.amazon.com/Dynamic-Documents-knitr-Second-Chapman-ebook/dp/B00ZBYPJEW/ref=tmm_kin_title_0?_encoding=UTF8&sr=&qid=)
+-   [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 -   [Karl Broman's Tools for RR Course](http://kbroman.org/Tools4RR/)
 -   Other links: [`resources.md`](Resources/resources.md)

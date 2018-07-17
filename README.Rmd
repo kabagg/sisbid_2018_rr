@@ -13,16 +13,16 @@ output:
 
 # Instructors
 
-This module is part of the 
+This module is part of the
 [Summer Institute in Statistics for Big Data](https://www.biostat.washington.edu/suminst/sisbid)!
 
-Taught by  
+Taught by
 
 Keith A. Baggerly
 <br/>
-[kabagger@mdanderson.org](mailto:kabagger@mdanderson.org)  
+[kabagger@mdanderson.org](mailto:kabagger@mdanderson.org)
 
-and  
+and
 
 [Karl Broman](http://kbroman.org)
 <br/>
@@ -35,7 +35,7 @@ and
 
 # [Homework](Resources/homework.md)
 
-# Cheat Sheets 
+# Cheat Sheets
 
 Karl's [Software Carpentry Course](https://kbroman.wordpress.com/2015/04/29/cheat-sheets-for-r-based-software-carpentry-course/)
 
@@ -59,26 +59,26 @@ These are from GitHub
 
 ### Session 1, 8:30-10
 
-**Lecture 0, Basic Intro, Keith, 5-10 min** 
- 
+**Lecture 0, Basic Intro, Keith, 5-10 min**
+
 Introduction to the course, administration, course goals
 
-Definitions - reproduction vs replication  
+Definitions - reproduction vs replication
 
 [slides](Slides/2018_SISBID-RR_00_basic_intro.pdf),
 [printable version](Slides/2018_SISBID-RR_00_basic_intro_printable.pdf)
 
 **Lecture 1, Intro and Common Problems, Karl, 40 min**
- 
-An introduction to reproducible research by way of 
+
+An introduction to reproducible research by way of
 commonly encountered problems
 
 [slides](Slides/2018_SISBID-RR_01_introduction_slides.pdf),
 [printable version](Slides/2018_SISBID-RR_01_introduction_printable.pdf)
 
 **Lecture 2, A Train Wreck, Keith, 40 min**
- 
-A case study describing just how bad things can get, 
+
+A case study describing just how bad things can get,
 with clinical implications
 
 [slides](Slides/2018_SISBID-RR_02_train_wreck.pdf),
@@ -86,13 +86,14 @@ with clinical implications
 
 ### Session 2, 10:30-12
 
-**Lecture 3, R Markdown and Literate Programming, Karl, 45 min** 
+**Lecture 3, R Markdown and Literate Programming, Karl, 45 min**
 
-[Rmd source](Slides/2018_SISBID-RR_03_example.Rmd),
-[md output](Slides/2018_SISBID-RR_03_Rmarkdown.md)
+[md lecture notes](Slides/2018_SISBID-RR_03_Rmarkdown.md),
+[Rmd example](Slides/2018_SISBID-RR_03_example.Rmd)
 
-**Homework part 1, participants, 45 min**  
-Set up the analysis folder, write the preprocessing 
+
+**Homework part 1, participants, 45 min**
+Set up the analysis folder, write the preprocessing
 script in R markdown, compile to html / pdf / word
 
 ### Session 3, 1:30-3
@@ -102,24 +103,25 @@ script in R markdown, compile to html / pdf / word
 [slides](Slides/2018_SISBID-RR_04_r_packages.pdf),
 [printable version](Slides/2018_SISBID-RR_04_r_packages_printable.pdf)
 
-**Homework part 2, participants, 30 min**  
+**Homework part 2, participants, 30 min**
 
 writing a basic package
 
 ### Session 4, 3:30-5
 
-**Lecture 5, Big Jobs, Karl, 45 min (includes some workalong activities)** 
+**Lecture 5, Big Jobs, Karl, 45 min (includes some workalong activities)**
 
-Capturing exploratory data analysis, handling the 
-challenges arising when data or jobs are big enough 
-to make rerunning unpleasant or infeasible. 
+Capturing exploratory data analysis, handling the
+challenges arising when data or jobs are big enough
+to make rerunning unpleasant or infeasible.
 
 [slides](Slides/2018_SISBID-RR_05_bigjobs_slides.pdf),
-[printable version](Slides/2018_SISBID-RR_05_bigjobs_printable.pdf)
+[printable version](Slides/2018_SISBID-RR_05_bigjobs_printable.pdf),
+[spin example](Slides/2018_SISBID-RR_05_spin_example.R)
 
 **Lecture 6, Make, Karl, 45 min**
 
-A brief introduction to automation with 
+A brief introduction to automation with
 [GNU Make](https://www.gnu.org/software/make/)
 
 [slides](Slides/2018_SISBID-RR_06_make_slides.pdf),
@@ -130,9 +132,9 @@ A brief introduction to automation with
 ### Session 5, 8:30-10
 
 **Lecture 7, Problems with Replication, Keith, 40 min**
-  
-A review of several factors which can make results 
-harder to replicate (be seen again with new samples) 
+
+A review of several factors which can make results
+harder to replicate (be seen again with new samples)
 vs hard to reproduce (starting from the same raw data)
 
 [slides](Slides/2018_SISBID-RR_07_problems_w_replication.pdf),
@@ -148,15 +150,15 @@ Using Git/GitHub to share and track versioned files and workflows; using Git/Git
 ### Session 6, 10:30-12
 
 **Lecture 9, Git/GitHub 2: Branching and Merging, Keith, 45 min**
- 
+
 Dealing with concurrent development, when things break, and conflicts
 
 [slides](Slides/2018_SISBID-RR_09_git_2_branching.pdf),
 [printable version](Slides/2018_SISBID-RR_09_git_2_branching_printable.pdf)
 
-**Homework, participants, 45 min**  
+**Homework, participants, 45 min**
 
-Establishing a repo at GitHub. 
+Establishing a repo at GitHub.
 Posting your package to GitHub.
 
 This session will be a mixture of lecture and live demo.
@@ -164,20 +166,18 @@ This session will be a mixture of lecture and live demo.
 ### Session 7, 1:30-3
 
 **Lecture 10, Collaborating with Git, Keith, 45 min**
- 
-Working with others, making comments, providing feedback, 
-fixing errors  
 
 [slides](Slides/2018_SISBID-RR_10_git_3_collab.pdf),
 [printable version](Slides/2018_SISBID-RR_10_git_3_collab_printable.pdf)
 
 **Homework, participants, 45 min**  
-
-Working with your neighbor's repos
+=======
+Working with others, making comments, providing feedback,
+fixing errors
 
 ### Session 8, 3:30-5
 
-**Homework, participants, 45 min**  
+**Homework, participants, 45 min**
 Add comments and vignettes to your package on GitHub
 
 **Lecture 11, Implementing RR at MDACC, Keith, 45 min**
@@ -192,13 +192,13 @@ A review of ongoing efforts within the biostat department at MD Anderson to prod
 ### Session 9, 8:30-10
 
 **Lecture 12, Writing Good Reports, Keith, 45 min**
- 
+
 The "non-codeable" parts of reproducibility - trying to increase the odds your collaborators will understand what it is you're trying to do.
 
 [slides](Slides/2018_SISBID-RR_12_good_reports.pdf),
 [printable version](Slides/2018_SISBID-RR_12_good_reports_printable.pdf)
 
-**Homework, participants, 45 min**  
+**Homework, participants, 45 min**
 
 Automating common tasks with templates - report structures, directory structures, and look and feel
 
@@ -206,18 +206,18 @@ Automating common tasks with templates - report structures, directory structures
 
 **Lecture 13, Summary and Wrapup, Karl, 45 min**
 
-Maintaining the Mindset  
+Maintaining the Mindset
 
 [slides](Slides/2018_SISBID-RR_13_summary_slides.pdf),
 [printable version](Slides/2018_SISBID-RR_13_summary_printable.pdf)
 
-**Final Class Discussion**  
+**Final Class Discussion**
 
-**Evals, participants, 5 min**  
+**Evals, participants, 5 min**
 
 # Previous Years
 
-Lectures from  
+Lectures from
 [2016](https://github.com/SISBID/Module3/tree/master/Lectures_from_2016) and
 [2017](https://github.com/SISBID/Module3).
 
@@ -242,5 +242,6 @@ recorded,
 * [Justin Kitzes et al, The Practice of Reproducible Research](https://www.amazon.com/Practice-Reproducible-Research-Data-Intensive-Sciences-ebook/dp/B075H9Y7W3/ref=mt_kindle?_encoding=UTF8&me=&qid=1530358798&dpID=51Q35-OA11L&preST=_SY445_QL70_&dpSrc=detail), [online version](https://www.practicereproducibleresearch.org/)
 * [Hadley Wickham, R Packages (2015)](http://www.amazon.com/R-Packages-Hadley-Wickham-ebook/dp/B00VAYCHL0/ref=pd_sim_351_6?ie=UTF8&refRID=1E8HS30WBHRCW45SEWXM), [online version](http://r-pkgs.had.co.nz/)
 * [Yihui Xie, Dynamic Documents with R and knitr, 2e (2015)](http://www.amazon.com/Dynamic-Documents-knitr-Second-Chapman-ebook/dp/B00ZBYPJEW/ref=tmm_kin_title_0?_encoding=UTF8&sr=&qid=)
+* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 * [Karl Broman's Tools for RR Course](http://kbroman.org/Tools4RR/)
 * Other links: [`resources.md`](Resources/resources.md)
