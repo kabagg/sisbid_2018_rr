@@ -265,18 +265,18 @@ if(file.exists(file)) {
 \begin{frame}[c,fragile]{Chunk references}
 
 \begin{lstlisting}
-```{r not_shown, eval=FALSE}
-code_here <- 0
+```{r not_run, eval=FALSE}
+awesome_code_here <- 0
 ```
 
-```{r a_code_chunk, echo=FALSE}
+```{r not_shown, echo=FALSE}
 file <- "cache/myfile.RData"
 
 if(file.exists(file)) {
   load(file)
 } else{
-<<not_shown>>
-  save(code_here, file=file)
+<<not_run>>
+  save(awesome_code_here, file=file)
 }
 ```
 \end{lstlisting}
@@ -284,7 +284,7 @@ if(file.exists(file)) {
 \note{
   Here's how I'd avoid repeated code: use chunk references.
 
-  The {\tt <<not\_shown>>} is replaced by the code from that chunk with
+  The {\tt <<not\_run>>} is replaced by the code from the chunk with
   that label.
 }
 \end{frame}
