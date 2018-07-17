@@ -18,8 +18,7 @@ July 16-18, 2018
         -   [Session 5, 8:30-10](#session-5-830-10)
         -   [Session 6, 10:30-12](#session-6-1030-12)
         -   [Session 7, 1:30-3](#session-7-130-3)
--   [**Homework, participants, 45 min**](#homework-participants-45-min)
-    -   [Session 8, 3:30-5](#session-8-330-5)
+        -   [Session 8, 3:30-5](#session-8-330-5)
     -   [Day 3, Jul 19, 2017](#day-3-jul-19-2017)
         -   [Session 9, 8:30-10](#session-9-830-10)
         -   [Session 10, 10:30-12](#session-10-1030-12)
@@ -166,7 +165,6 @@ This session will be a mixture of lecture and live demo.
 [slides](Slides/2018_SISBID-RR_10_git_3_collab.pdf), [printable version](Slides/2018_SISBID-RR_10_git_3_collab_printable.pdf)
 
 **Homework, participants, 45 min**
-==================================
 
 Working with others, making comments, providing feedback, fixing errors
 

@@ -171,7 +171,7 @@ This session will be a mixture of lecture and live demo.
 [printable version](Slides/2018_SISBID-RR_10_git_3_collab_printable.pdf)
 
 **Homework, participants, 45 min**  
-=======
+
 Working with others, making comments, providing feedback,
 fixing errors
 
